@@ -15,6 +15,7 @@ client = pymongo.MongoClient(mongo_uri)
 db = client[mongo_db]
 
 def get_time():
+    # TODO  切换时区，转成UTC时间
     now = datetime.datetime.now()
     format = '%Y-%m-%d %H:%M:%S'
     return now.strftime(format)
