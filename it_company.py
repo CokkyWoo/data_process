@@ -46,7 +46,7 @@ def insert_item():
     for i in db[collection_name].find({}).sort('com_id', pymongo.ASCENDING):
         # status[0: 初始化保存 1：处理插入mysql完成】
         if i['process_status'] == 0:
-            name = i['com_name']
+            name = i['com_name'].replace('\'','\\\'')
             website = ''
             tags = ''
             try:
@@ -54,14 +54,9 @@ def insert_item():
             except:
                 image_uris = ''
             try:
-                # TODO 对'的转义处理
-                info = re.compile('\'')
-                unkown = i['com_des'].strip()
-                description = re.sub(info,unkown)
-                print('@@@@@@@@@@@@@@@@@@@ description:'+description)
+                description = i['com_des'].replace('\'','\\\'')
             except:
                 description = ''
-                print('@@@@@@@@@@@@@@@@@@@ blank')
             try:
                 scale = i['com_scale'].strip()
             except:
@@ -89,7 +84,7 @@ def insert_item():
             try:
                 sql = "INSERT INTO companies_company( name,website,tags,image_uris,description,scale,location, \
                     sector,subsector,remark,created_time,updated_time,is_active,status) values ('{}','{}','{}',\
-                    '{}',r'{}','{}','{}','{}','{}','{}','{}','{}',{},{});".format(
+                    '{}','{}','{}','{}','{}','{}','{}','{}','{}',{},{});".format(
                     name,website,tags,image_uris,description,scale,location,sector,subsector,
                     remark,created_time,updated_time,is_active,status)
                 if mysql_client.insert(sql) != False:
@@ -100,8 +95,8 @@ def insert_item():
                     print('### company ' + str(i['com_id']) + ' can not saved to mysql!')
             except:
                 print('exception mysql not save')
-        # else:
-        #     print('!!!!alert company ' + str(i['com_id']) + '  have been saved before!')
+        else:
+            print('!!!! alert company ' + str(i['com_id']) + '  have been saved before!')
     client.close()
 
 def main():

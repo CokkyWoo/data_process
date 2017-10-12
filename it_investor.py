@@ -27,7 +27,7 @@ def insert_item():
     for i in db[collection_name].find({}).sort('invst_id', pymongo.ASCENDING):
         # status[0: 初始化保存 1：处理插入mysql完成】
         if i['status'] == 4:
-            name = i['invst_name']
+            name = i['invst_name'].replace('\'','\\\'')
             short_name = ''
             try:
                 type = i['invst_type']
@@ -38,7 +38,7 @@ def insert_item():
             except:
                 image_uris = ''
             try:
-                description = i['invst_des'].strip()
+                description = i['invst_des'].strip().replace('\'','\\\'')
             except:
                 description = ''
             try:
@@ -73,7 +73,7 @@ def insert_item():
             except:
                 print('exception mysql not save')
         else:
-            print('!!!!alert investor ' + str(i['invst_id']) + 'have been saved before!')
+            print('!!!! alert investor ' + str(i['invst_id']) + 'have been saved before!')
     client.close()
 
 def main():
