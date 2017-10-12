@@ -26,7 +26,7 @@ def insert_item():
     # 3. 未添加则处理数据并插入mysql
     for i in db[collection_name].find({}).sort('invst_id', pymongo.ASCENDING):
         # status[0: 初始化保存 1：处理插入mysql完成】
-        if i['status'] == 4:
+        if i['status'] == 0:
             name = i['invst_name'].replace('\'','\\\'')
             short_name = ''
             try:
@@ -78,7 +78,6 @@ def insert_item():
 
 def main():
     insert_item()
-
 
 if __name__ == '__main__':
     main()
