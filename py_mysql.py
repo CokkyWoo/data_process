@@ -46,6 +46,16 @@ class MysqlClient():
             traceback.print_exc(5)
             return False
 
+    # insert一条数据，当插入成功时返回其插入的主键自增的id值
+    def insert(self, sql):
+        try:
+            self.queryNum = self.cur.execute(sql)
+            insert_id = self.conn.insert_id()
+            return insert_id
+        except:
+            traceback.print_exc(5)
+            return False
+
     def getSql(self):
         fetch = self.cur.fetchall()
         for inv in fetch:

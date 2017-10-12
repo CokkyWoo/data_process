@@ -25,7 +25,8 @@ def insert_item():
     # 2. 已添加则读取下一条数据
     # 3. 未添加则处理数据并插入mysql
     for i in db[collection_name].find({}).sort('invst_id', pymongo.ASCENDING):
-        if i['is_process'] == 0:
+        # status[0: 初始化保存 1：处理插入mysql完成】
+        if i['status'] == 4:
             name = i['invst_name']
             short_name = ''
             try:
@@ -33,15 +34,15 @@ def insert_item():
             except:
                 type = ''
             try:
-                image_uris = i['invst_logo']
+                image_uris = i['invst_logo'].strip()
             except:
                 image_uris = ''
             try:
-                description = i['invst_des']
+                description = i['invst_des'].strip()
             except:
                 description = ''
             try:
-                website = i['web_site']
+                website = i['web_site'].strip()
             except:
                 website = ''
             try:
@@ -56,20 +57,23 @@ def insert_item():
             created_time = get_time()
             updated_time = get_time()
             is_active = 1
+            location = ''
             try:
-                sql = "INSERT INTO investors_investor(name, short_name, type, image_uris, description, website, tags, interests,\
-                    remark, is_active, created_time, updated_time) values ('{}','{}','{}','{}','{}','{}','{}','{}','{}',\
-                    {},'{}','{}');".format(name, short_name, type, image_uris, description, website, tags, interests,remark,
-                                           is_active, created_time, updated_time)
-                # print(sql)
-                mysql_client.query(sql)
-                print('@@@@@investor '+str(i['invst_id'])+' saved to mysql')
-                db[collection_name].update(i, {"$set": {'is_process': 1}})
+                sql = "INSERT INTO investors_investor(name, short_name, type, image_uris, description, website, tags, \
+                    interests,remark, created_time, updated_time, location, is_active) values \
+                    ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}',{});".format(
+                    name, short_name, type, image_uris, description, website, tags, interests,remark,
+                        created_time, updated_time, location, is_active)
+                if mysql_client.insert(sql) != False:
+                    plus_id = mysql_client.conn.insert_id()
+                    print('---- investor '+str(i['invst_id'])+' saved to mysql,and plus id:'+str(plus_id))
+                    db[collection_name].update(i, {"$set": {'status': 1,'plus_id':plus_id}})
+                else:
+                    print('### investor ' + str(i['invst_id']) + ' can not saved to mysql!')
             except:
                 print('exception mysql not save')
         else:
             print('!!!!alert investor ' + str(i['invst_id']) + 'have been saved before!')
-
     client.close()
 
 def main():
