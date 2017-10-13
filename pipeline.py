@@ -100,7 +100,7 @@ def get_currency(currency_str):
         'TWD':'新台币',
         'HKD':'港元',
         'INR':'卢比',
-        'yyy':'其它', # 人工填写的其它
+        'yyy':'其他', # 人工填写的其他
         'zzz':'', # 空值
     }
     try:
@@ -129,7 +129,7 @@ def get_amount(amount_str):
         unit_str = re.compile(r'[^\u4e00-\u9fa5]')
         unit = unit_str.sub('',amount_str)
         if unit == '亿':
-            amount = int(float(num)*1000)
+            amount = int(float(num)*10000)
         elif unit == '万':
             amount = num
         else:
