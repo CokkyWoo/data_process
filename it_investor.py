@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from config import *
-from py_mysql import *
 from pipeline import *
 import pymongo
-import datetime
 
 collection_name = 'investor'
 mongo_uri = MONGO_URI

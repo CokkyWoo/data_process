@@ -12,7 +12,7 @@ import re
 from py_mysql import *
 import pymongo
 
-collection_deal = 'deal_sample'
+collection_deal = 'deal_alltest'
 collection_deal_investors = 'deal_investors_sample'
 collection_company = 'company_dealtest'
 collection_investor = 'investor_dealtest'
@@ -156,19 +156,17 @@ def check_data(params):
 def update_com_name(com_plus_id, deal_cname):
     result = db[collection_company].find_one({'plus_id':com_plus_id})
     com_cname = result['com_name']
-    # print('1+++++ company name : ' + com_cname + ' deal com name: ' + deal_cname)
     if com_cname != deal_cname:
-        print('1+++++need update!')
         try:
             sql = "UPDATE companies_company SET name = ('{}') where id = ({})".format(deal_cname,com_plus_id)
             if mysql_client.query(sql) == True:
-                print('2--- company('+str(com_plus_id)+') updated: '+ deal_cname)
+                print('%%--- company('+str(com_plus_id)+') updated: '+ deal_cname)
                 db[collection_company].update({'plus_id':com_plus_id}, {"$set": {'com_name': deal_cname,'process_status': 2,}})
-                print('3---updated in MongoDB! 2: '+ deal_cname)
+                print('%%---updated in MongoDB! : '+ deal_cname)
             else:
-                print('4---!!! company('+ str(com_plus_id)+') can not update in mysql!')
+                print('%%---!!! company('+ str(com_plus_id)+') can not update in mysql!')
         except:
-            print('5---exception mysql not save')
+            print('%%---exception mysql not save')
 
 def main():
     # print('Enter :')
@@ -177,7 +175,7 @@ def main():
     # get_round(str) #完成
     # get_currency(str) #完成
     # get_amount(str) #完成
-    update_com_name(1,'美丽说') #完成
+    # update_com_name(1,'美丽说') #完成
     # check_data() 完成
     # dict = {
     #     'id':3299620,
