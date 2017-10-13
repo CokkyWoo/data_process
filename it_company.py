@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from config import *
-from py_mysql import *
+from pipeline import *
 import pymongo
-import datetime
-import re
 
-collection_name = 'company_sample'
+collection_name = 'company'
 mongo_uri = MONGO_URI
 mongo_db = MONGO_DATABASE
 
@@ -15,29 +12,6 @@ mysql_client = MysqlClient()
 client = pymongo.MongoClient(mongo_uri)
 db = client[mongo_db]
 status = 0
-
-def get_time():
-    # TODO  切换时区，转成UTC时间
-    now = datetime.datetime.now()
-    format = '%Y-%m-%d %H:%M:%S'
-    return now.strftime(format)
-
-def get_status(status_str):
-    status_rule = {
-        1:'运营中',
-        2:'未上线',
-        3:'已关闭',
-        4:'已转型'
-    }
-    try:
-        for k,v in status_rule.items():
-            if status_str == v:
-                status = k
-        return status
-    except:
-        print('!!!----status maybe error!')
-
-# def get_content(content):
 
 def insert_item():
     # 1. 读取数据并判断其是否已经添加
@@ -73,7 +47,7 @@ def insert_item():
                 subsector = i['com_sub_cat_name']
             except:
                 subsector =''
-            status = get_status(i['com_status'])
+            status = get_company_status(i['com_status'])
             if i['com_born_date']:
                 remark = 'it{com_id:' + str(i['com_id']) + ';born_date:' + i['com_born_date'] +';};'
             else:

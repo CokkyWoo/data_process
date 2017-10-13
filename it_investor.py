@@ -3,6 +3,7 @@
 
 from config import *
 from py_mysql import *
+from pipeline import *
 import pymongo
 import datetime
 
@@ -14,19 +15,13 @@ mysql_client = MysqlClient()
 client = pymongo.MongoClient(mongo_uri)
 db = client[mongo_db]
 
-def get_time():
-    # TODO  切换时区，转成UTC时间
-    now = datetime.datetime.now()
-    format = '%Y-%m-%d %H:%M:%S'
-    return now.strftime(format)
-
 def insert_item():
     # 1. 读取数据并判断其是否已经添加
     # 2. 已添加则读取下一条数据
     # 3. 未添加则处理数据并插入mysql
     for i in db[collection_name].find({}).sort('invst_id', pymongo.ASCENDING):
         # status[0: 初始化保存 1：处理插入mysql完成】
-        if i['status'] == 4:
+        if i['status'] == 0:
             name = i['invst_name'].replace('\'','\\\'')
             short_name = ''
             try:
