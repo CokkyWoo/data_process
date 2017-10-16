@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cbb5a6fe-7a00-4afa-ac1f-7de082f2fd1b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pipeline.py" afterPath="$PROJECT_DIR$/pipeline.py" />
-    </list>
+    <list default="true" id="cbb5a6fe-7a00-4afa-ac1f-7de082f2fd1b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +18,7 @@
       <file leaf-file-name="pipeline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-335">
+            <state relative-caret-position="2436">
               <caret line="120" column="30" lean-forward="false" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
               <folding>
                 <element signature="e#125#145#0" expanded="true" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="it_deal.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/it_deal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="63" column="69" lean-forward="true" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+            <state relative-caret-position="906">
+              <caret line="63" column="69" lean-forward="false" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
               <folding>
                 <element signature="e#47#69#0" expanded="true" />
               </folding>
@@ -91,7 +89,7 @@
     <option name="height" value="758" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -104,21 +102,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="data_process" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_process" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -284,9 +268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -304,9 +285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="79" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -331,9 +309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
           <caret line="48" column="53" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="53" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -438,9 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-701">
           <caret line="48" column="53" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="53" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -548,9 +520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="59" column="30" lean-forward="true" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,9 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,15 +534,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-297">
           <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding>
-            <element signature="e#47#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-335">
+        <state relative-caret-position="2436">
           <caret line="120" column="30" lean-forward="false" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
           <folding>
             <element signature="e#125#145#0" expanded="true" />
@@ -586,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/it_deal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="63" column="69" lean-forward="true" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+        <state relative-caret-position="906">
+          <caret line="63" column="69" lean-forward="false" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
           <folding>
             <element signature="e#47#69#0" expanded="true" />
           </folding>
